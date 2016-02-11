@@ -8,14 +8,12 @@
         href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css"
     />
     <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css" />
-<script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
 </head>
 <body>
     <div id="map" style="width: 1200px; height: 800px"></div>
-
+    <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
     <script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js"></script>
-    <script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
-    
+
     <script>
     var layer = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
   attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
@@ -26,13 +24,10 @@ var map = L.map('map', {
   center: [30.267987, -97.743804],
   zoom: 11
 });
-map.addLayer(layer); 
-  cartodb.createLayer(map, 'http://txbernie.cartodb.com/api/v2/viz/1198cbc6-cf62-11e5-a772-0ea31932ec1d/viz.json')
+    map.addLayer(layer); 
+    cartodb.createLayer(map, 'http://txbernie.cartodb.com/api/v2/viz/1198cbc6-cf62-11e5-a772-0ea31932ec1d/viz.json')
     .addTo(map)
-    .on('done', function(layer) {
-      //do stuff
-    .on('error', function(err) {
-      alert("some error occurred: " + err);
+    .on('done', function(layer)
     });
 
 
