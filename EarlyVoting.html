@@ -45,8 +45,9 @@
 }
   .menu-ui {
   background:#fff;
-  position:absolute;
-  top:200px;right:500px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
   z-index:1;
   border-radius:3px;
   width:120px;
@@ -85,9 +86,9 @@
   <script src='https://code.jquery.com/jquery-1.11.0.min.js'></script>
 
 <nav class='menu-ui'>
-  <a href='#' class='active' data-filter='all'>Show all</a>
-  <a href='#' data-filter='rentals'>MOBILE EARLY VOTING LOCATIONS</a>
-  <a href='#' data-filter='tackleshop'>EARLY VOTING</a>
+  <a href='#' class='active' data-filter='all'>Early Voting</a>
+  <a href='#' data-filter='mobile'>Mobile Early Voting</a>
+  <a href='#' data-filter='tackleshop'>Both</a>
 
 </nav>
 
@@ -104,7 +105,7 @@ var map = L.mapbox.map('map', 'mapbox.streets', {
     zoomControl: false
 }).setView([30.267987, -97.743804], 9);
 // move the attribution control out of the way
-map.attributionControl.setPosition('bottomleft');
+map.attributionControl.setPosition('bottomright');
 // create the initial directions object, from which the layer
 // and inputs will pull data.
 var directions = L.mapbox.directions();
