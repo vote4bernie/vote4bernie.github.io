@@ -93,11 +93,6 @@
 </nav>
 
 <div id='map'></div>
-<div id='inputs'></div>
-<div id='errors'></div>
-<div id='directions'>
-  <div id='routes'></div>
-  <div id='instructions'></div>
 </div>
 <script src='https://code.jquery.com/jquery-1.11.0.min.js'></script>
 <script>
@@ -122,6 +117,12 @@ function load() {
     }
   });
 }
+<div id='inputs'></div>
+<div id='errors'></div>
+<div id='directions'>
+  <div id='routes'></div>
+  <div id='instructions'></div>
+</div>
 // move the attribution control out of the way
 map.attributionControl.setPosition('bottomright');
 // create the initial directions object, from which the layer
