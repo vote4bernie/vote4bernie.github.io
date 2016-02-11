@@ -12,6 +12,8 @@
     <div id="map" style="width: 1200px; height: 800px"></div>
 
     <script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js"></script>
+    <script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
+    
     <script>
     var layer = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
   attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
@@ -24,6 +26,7 @@ var map = L.map('map', {
 });
 
 map.addLayer(layer);
+var marker = L.marker([30.26799, -90.743894]).addTo(map);
     </script>
 </body>
 </html>
