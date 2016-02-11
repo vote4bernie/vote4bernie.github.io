@@ -25,7 +25,7 @@ var map = L.map('map', {
   scrollWheelZoom: false,
   center: [30.267987, -97.743804],
   zoom: 11
-  
+map.addLayer(layer); 
   cartodb.createLayer(map, 'hhttps://txbernie.cartodb.com/api/v2/viz/1198cbc6-cf62-11e5-a772-0ea31932ec1d/viz.json')
     .addTo(map)
     .on('done', function(layer) {
@@ -35,10 +35,6 @@ var map = L.map('map', {
       alert("some error occurred: " + err);
     });
 
-});
-pk.eyJ1Ijoic3BhdGlhbGp1anUiLCJhIjoiYTljNzM3Y2U3MmEwNzEyNmEwYzBlZDNiM2Q3MTQ5NjgifQ.J2RaAct4F7WhdmsevwslIg
-
-map.addLayer(layer);
 
     </script>
 </body>
