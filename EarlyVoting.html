@@ -102,14 +102,14 @@
 <script src='https://code.jquery.com/jquery-1.11.0.min.js'></script>
 <script>
 L.mapbox.accessToken = 'pk.eyJ1Ijoic3BhdGlhbGp1anUiLCJhIjoiYTljNzM3Y2U3MmEwNzEyNmEwYzBlZDNiM2Q3MTQ5NjgifQ.J2RaAct4F7WhdmsevwslIg';
-  var url = 'https://api.github.com/repos/mapbox/mapbox.js/contents/test/manual/example.geojson';
+  var url = 'https://raw.githubusercontent.com/vote4bernie/vote4bernie.github.io/master/mv.json';
   var map = L.mapbox.map('map', 'mapbox.streets')
   .setView([30.267987, -97.743804], 9);
 
 function load() {
   $.ajax({
     headers: {
-      'Accept': 'https://raw.githubusercontent.com/vote4bernie/vote4bernie.github.io/master/mv.json'
+      'Accept': 'application/vnd.github.v3.raw'
     },
     xhrFields: {
       withCredentials: false
