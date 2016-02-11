@@ -25,12 +25,12 @@ var map = L.map('map', {
   scrollWheelZoom: false,
   center: [30.267987, -97.743804],
   zoom: 11
+});
 map.addLayer(layer); 
   cartodb.createLayer(map, 'hhttps://txbernie.cartodb.com/api/v2/viz/1198cbc6-cf62-11e5-a772-0ea31932ec1d/viz.json')
     .addTo(map)
     .on('done', function(layer) {
       //do stuff
-    })
     .on('error', function(err) {
       alert("some error occurred: " + err);
     });
