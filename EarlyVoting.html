@@ -100,7 +100,13 @@
   <div id='instructions'></div>
 </div>
 <script>
-L.mapbox.accessToken = 'pk.eyJ1Ijoic3BhdGlhbGp1anUiLCJhIjoiYTljNzM3Y2U3MmEwNzEyNmEwYzBlZDNiM2Q3MTQ5NjgifQ.J2RaAct4F7WhdmsevwslIg';
+$.getJSON("vote4bernie.github.io/mv.json", function(data) {
+    var geojson = L.geoJson(data, {
+      onEachFeature: function (feature, layer) {
+        layer.bindPopup(feature.properties.name);
+      }
+    });
+    L.mapbox.accessToken = 'pk.eyJ1Ijoic3BhdGlhbGp1anUiLCJhIjoiYTljNzM3Y2U3MmEwNzEyNmEwYzBlZDNiM2Q3MTQ5NjgifQ.J2RaAct4F7WhdmsevwslIg';
 var map = L.mapbox.map('map', 'mapbox.streets', {
     zoomControl: false
 }).setView([30.267987, -97.743804], 9);
