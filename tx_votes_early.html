@@ -16,9 +16,6 @@
     </script>
 
     <script>
-      var marker = L.marker["ACC NORTHRIDGE",30.403431,-97.704201]
-            .addTo(map);
-
 var layer = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
   attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
 });
@@ -30,6 +27,8 @@ var map = L.map('map', {
 });
 
 map.addLayer(layer);
+ var marker = L.marker["ACC NORTHRIDGE",30.403431,-97.704201]
+            .addTo(map);
     </script>
 </body>
 </html>
