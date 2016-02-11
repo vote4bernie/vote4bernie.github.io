@@ -21,13 +21,11 @@
     max-width: 300px;
     min-width: 200px;
 }
-
 #inputs {
     z-index: 10;
     top: 10px;
     left: 10px;
 }
-
 #directions {
     z-index: 99;
     background: rgba(0,0,0,.8);
@@ -36,7 +34,6 @@
     bottom: 0;
     overflow: auto;
 }
-
 #errors {
     z-index: 8;
     opacity: 0;
@@ -46,11 +43,53 @@
     top: 90px;
     left: 10px;
 }
-
+  .menu-ui {
+  background:#fff;
+  position:absolute;
+  top:200px;right:500px;
+  z-index:1;
+  border-radius:3px;
+  width:120px;
+  border:1px solid rgba(0,0,0,0.4);
+  }
+  .menu-ui a {
+    font-size:13px;
+    color:#404040;
+    display:block;
+    margin:0;padding:0;
+    padding:5px;
+    text-decoration:none;
+    border-bottom:1px solid rgba(0,0,0,0.25);
+    text-align:center;
+    }
+    .menu-ui a:first-child {
+      border-radius:3px 3px 0 0;
+      }
+    .menu-ui a:last-child {
+      border:none;
+      border-radius:0 0 3px 3px;
+      }
+    .menu-ui a:hover {
+      background:#f8f8f8;
+      color:#404040;
+      }
+    .menu-ui a.active,
+    .menu-ui a.active:hover {
+      background:#3887BE;
+      color:#FFF;
+      }
 </style>
 
 <script src='https://api.mapbox.com/mapbox.js/plugins/mapbox-directions.js/v0.4.0/mapbox.directions.js'></script>
 <link rel='stylesheet' href='https://api.mapbox.com/mapbox.js/plugins/mapbox-directions.js/v0.4.0/mapbox.directions.css' type='text/css' />
+  <script src='https://code.jquery.com/jquery-1.11.0.min.js'></script>
+
+<nav class='menu-ui'>
+  <a href='#' class='active' data-filter='all'>Show all</a>
+  <a href='#' data-filter='rentals'>MOBILE EARLY VOTING LOCATIONS</a>
+  <a href='#' data-filter='tackleshop'>EARLY VOTING</a>
+
+</nav>
 
 <div id='map'></div>
 <div id='inputs'></div>
@@ -64,26 +103,19 @@ L.mapbox.accessToken = 'pk.eyJ1Ijoic3BhdGlhbGp1anUiLCJhIjoiYTljNzM3Y2U3MmEwNzEyN
 var map = L.mapbox.map('map', 'mapbox.streets', {
     zoomControl: false
 }).setView([30.267987, -97.743804], 9);
-
 // move the attribution control out of the way
 map.attributionControl.setPosition('bottomleft');
-
 // create the initial directions object, from which the layer
 // and inputs will pull data.
 var directions = L.mapbox.directions();
-
 var directionsLayer = L.mapbox.directions.layer(directions)
     .addTo(map);
-
 var directionsInputControl = L.mapbox.directions.inputControl('inputs', directions)
     .addTo(map);
-
 var directionsErrorsControl = L.mapbox.directions.errorsControl('errors', directions)
     .addTo(map);
-
 var directionsRoutesControl = L.mapbox.directions.routesControl('routes', directions)
     .addTo(map);
-
 var directionsInstructionsControl = L.mapbox.directions.instructionsControl('instructions', directions)
     .addTo(map);
 </script>
