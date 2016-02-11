@@ -83,7 +83,7 @@
 
 <script src='https://api.mapbox.com/mapbox.js/plugins/mapbox-directions.js/v0.4.0/mapbox.directions.js'></script>
 <link rel='stylesheet' href='https://api.mapbox.com/mapbox.js/plugins/mapbox-directions.js/v0.4.0/mapbox.directions.css' type='text/css' />
-  <script src='https://code.jquery.com/jquery-1.11.0.min.js'></script>
+<script src='https://code.jquery.com/jquery-1.11.0.min.js'></script>
 
 <nav class='menu-ui'>
   <a href='#' class='active' data-filter='all'>Early Voting</a>
@@ -99,11 +99,14 @@
   <div id='routes'></div>
   <div id='instructions'></div>
 </div>
+<script src='https://code.jquery.com/jquery-1.11.0.min.js'></script>
 <script>
 L.mapbox.accessToken = 'pk.eyJ1Ijoic3BhdGlhbGp1anUiLCJhIjoiYTljNzM3Y2U3MmEwNzEyNmEwYzBlZDNiM2Q3MTQ5NjgifQ.J2RaAct4F7WhdmsevwslIg';
-var map = L.mapbox.map('map', 'mapbox.streets', {
-    zoomControl: false
-}).setView([30.267987, -97.743804], 9);
+  var url = 'https://api.github.com/repos/mapbox/mapbox.js/contents/test/manual/example.geojson';
+  var map = L.mapbox.map('map', 'mapbox.streets')
+  .setView([30.267987, -97.743804], 9);
+
+function load() {
   $.ajax({
     headers: {
       'Accept': 'https://raw.githubusercontent.com/vote4bernie/vote4bernie.github.io/master/mv.json'
