@@ -93,11 +93,18 @@
 </nav>
 
 <div id='map'></div>
+
+
+<div id='inputs'></div>
+<div id='errors'></div>
+<div id='directions'>
+  <div id='routes'></div>
+  <div id='instructions'></div>
 </div>
 <script src='https://code.jquery.com/jquery-1.11.0.min.js'></script>
 <script>
 L.mapbox.accessToken = 'pk.eyJ1Ijoic3BhdGlhbGp1anUiLCJhIjoiYTljNzM3Y2U3MmEwNzEyNmEwYzBlZDNiM2Q3MTQ5NjgifQ.J2RaAct4F7WhdmsevwslIg';
-  var url = 'https://raw.githubusercontent.com/vote4bernie/vote4bernie.github.io/master/mv.json';
+  var url = 'https://github.com/vote4bernie/vote4bernie.github.io/blob/master/mv.json';
   var map = L.mapbox.map('map', 'mapbox.streets')
   .setView([30.267987, -97.743804], 9);
 
@@ -117,12 +124,6 @@ function load() {
     }
   });
 }
-<div id='inputs'></div>
-<div id='errors'></div>
-<div id='directions'>
-  <div id='routes'></div>
-  <div id='instructions'></div>
-</div>
 // move the attribution control out of the way
 map.attributionControl.setPosition('bottomright');
 // create the initial directions object, from which the layer
