@@ -13,17 +13,10 @@
 
     <script
         src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js">
-    </script>
-    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v2/themes/css/cartodb.css" />
-<!--[if lte IE 8]>
-    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v2/themes/css/cartodb.ie.css" />
-<![endif]-->
-<script src="http://libs.cartocdn.com/cartodb.js/v2/cartodb.js"></script>
-
-    <script>
     var layer = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
   attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
 });
+
 var map = L.map('map', {
   scrollWheelZoom: false,
   center: [30.267987, -97.743804],
@@ -31,10 +24,6 @@ var map = L.map('map', {
 });
 
 map.addLayer(layer);
-var cdb_url = 'https://txbernie.cartodb.com/api/v2/viz/1198cbc6-cf62-11e5-a772-0ea31932ec1d/viz.json';
-cartodb.createLayer(map, cdb_url, function(layer) {
-    map.addLayer(layer);
-    });
     </script>
 </body>
 </html>
