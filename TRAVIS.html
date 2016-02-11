@@ -8,11 +8,58 @@
 <title>VOTE EARLY VOTE BERNIE</title>
 
 <style>
+#inputs,
+#errors,
+#directions {
+    position: absolute;
+    width: 33.3333%;
+    max-width: 300px;
+    min-width: 200px;
+}
+
+#inputs {
+    z-index: 10;
+    top: 10px;
+    left: 10px;
+}
+
+#directions {
+    z-index: 99;
+    background: rgba(0,0,0,.8);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+}
+
+#errors {
+    z-index: 8;
+    opacity: 0;
+    padding: 10px;
+    border-radius: 0 0 3px 3px;
+    background: rgba(0,0,0,.25);
+    top: 90px;
+    left: 10px;
+}
 #map {
 width: 960px;
 height: 500px;
 }
 </style>
+
+<script src='https://api.mapbox.com/mapbox.js/plugins/mapbox-directions.js/v0.4.0/mapbox.directions.js'></script>
+<link rel='stylesheet' href='https://api.mapbox.com/mapbox.js/plugins/mapbox-directions.js/v0.4.0/mapbox.directions.css' type='text/css' />
+
+<div id='map'></div>
+<div id='inputs'></div>
+<div id='errors'></div>
+<div id='directions'>
+  <div id='routes'></div>
+  <div id='instructions'></div>
+</div>
+<script>
+L.mapbox.accessToken = 'pk.eyJ1Ijoic3BhdGlhbGp1anUiLCJhIjoiYTljNzM3Y2U3MmEwNzEyNmEwYzBlZDNiM2Q3MTQ5NjgifQ.J2RaAct4F7WhdmsevwslIg';
+
 
 </head>
 
@@ -27,6 +74,23 @@ var map = L.map('map', {
   scrollWheelZoom: false,
   center: [30.267987, -97.743804],
   zoom: 11
+  map.attributionControl.setPosition('bottomleft');
+var directions = L.mapbox.directions();
+
+var directionsLayer = L.mapbox.directions.layer(directions)
+    .addTo(map);
+
+var directionsInputControl = L.mapbox.directions.inputControl('inputs', directions)
+    .addTo(map);
+
+var directionsErrorsControl = L.mapbox.directions.errorsControl('errors', directions)
+    .addTo(map);
+
+var directionsRoutesControl = L.mapbox.directions.routesControl('routes', directions)
+    .addTo(map);
+
+var directionsInstructionsControl = L.mapbox.directions.instructionsControl('instructions', directions)
+    .addTo(map);
 });
 
 map.addLayer(layer);
