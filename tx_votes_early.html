@@ -36,12 +36,7 @@ var map = L.map('map', {
     layer.on('featureOver', function(e, latlng, pos, data) {
     cartodb.log.log(e, latlng, pos, data);
     });
-    layer.on('error', function(err) {
-    cartodb.log.log('error: ' + err);
-    });
-    }).on('error', function() {
-    cartodb.log.log("some error occurred");
-          });
+
     </script>
 </body>
 </html>
