@@ -104,11 +104,6 @@
 var map = L.mapbox.map('map', 'mapbox.streets', {
     zoomControl: false
 }).setView([30.267987, -97.743804], 9);
-$.getJSON("vote4bernie.github.io/mv.json", function(data) {
-    var geojson = L.geoJson(data, {
-      onEachFeature: function (feature, layer) {
-        layer.bindPopup(feature.properties.name);
-      }
     });
 // move the attribution control out of the way
 map.attributionControl.setPosition('bottomright');
