@@ -7,6 +7,8 @@
         rel="stylesheet" 
         href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css"
     />
+    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css" />
+<script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
 </head>
 <body>
     <div id="map" style="width: 1200px; height: 800px"></div>
@@ -23,9 +25,18 @@ var map = L.map('map', {
   scrollWheelZoom: false,
   center: [30.267987, -97.743804],
   zoom: 11
+  
+  cartodb.createLayer(map, 'hhttps://txbernie.cartodb.com/api/v2/viz/1198cbc6-cf62-11e5-a772-0ea31932ec1d/viz.json')
+    .addTo(map)
+    .on('done', function(layer) {
+      //do stuff
+    })
+    .on('error', function(err) {
+      alert("some error occurred: " + err);
+    });
 
 });
-var marker = L.marker([30.26799, -90.743894]).addTo(map);
+pk.eyJ1Ijoic3BhdGlhbGp1anUiLCJhIjoiYTljNzM3Y2U3MmEwNzEyNmEwYzBlZDNiM2Q3MTQ5NjgifQ.J2RaAct4F7WhdmsevwslIg
 
 map.addLayer(layer);
 
