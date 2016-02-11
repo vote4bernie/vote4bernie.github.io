@@ -1,36 +1,33 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>WHEN WE VOTE WE WIN- BERNIETX</title>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css" />
-    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css"
-    />
-</head>
-<body>
-    <div id="map" style="width: 1200px; height: 800px"></div>
+< !DOCTYPE html >
+ < html >
+ < head >
+ < title > WHEN WE VOTE WE WIN - BERNIETX < /title> < meta charset = "utf-8" / >
+ < link rel = "stylesheet"
+href = "http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css" / >
+ < link rel = "stylesheet"
+href = "http://cdn.leafletjs.com/leaflet-0.7/leaflet.css" / >
+ < /head> < body >
+ < div id = "map"
+style = "width: 1200px; height: 800px" > < /div>
 
-    <script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js"></script>
-    <script src="http://libs.cartocdn.com/cartodb.js/v2/cartodb.js"></script>
+< script src = "http://cdn.leafletjs.com/leaflet-0.7/leaflet.js" > < /script> < script src = "http://libs.cartocdn.com/cartodb.js/v2/cartodb.js" > < /script>
 
-    <script>
-function main() {
-var map = new L.map('map', {
-  scrollWheelZoom: false,
-  center: [30.267987, -97.743804],
-  zoom: 11
-});
-    L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png')
-    }).addTo(map)
-    
-    cartodb.createLayer(map, 'http://txbernie.cartodb.com/api/v2/viz/1198cbc6-cf62-11e5-a772-0ea31932ec1d/viz.json')
-    .addTo(map)
-    .on('done', function(layer) {
-    layer.setInteraction(true);
-    layer.on('featureOver', function(e, latlng, pos, data) {
+< script >
+ function main() {
+  var map = new L.map('map', {
+   scrollWheelZoom: false,
+   center: [30.267987, -97.743804],
+   zoom: 11
+  });
+  L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png')
+ }).addTo(map)
+
+cartodb.createLayer(map, 'http://txbernie.cartodb.com/api/v2/viz/1198cbc6-cf62-11e5-a772-0ea31932ec1d/viz.json')
+ .addTo(map)
+ .on('done', function(layer) {
+   layer.setInteraction(true);
+   layer.on('featureOver', function(e, latlng, pos, data) {
     cartodb.log.log(e, latlng, pos, data);
-    });
+   });
 
-    </script>
-</body>
-</html>
+   < /script> < /body> < /html>
