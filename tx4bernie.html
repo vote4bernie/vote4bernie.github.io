@@ -24,6 +24,16 @@
     html, body {width:100%; height:100%; padding: 0; margin: 0;}
     #cartodb-map { width: 100%; height:100%; background: black;}
  
+ body > div.cartodb-header{
+  display: none;
+  position: absolute;
+  top:0px;
+  width: 100%;
+  background-color: rgba(0,0,0,.5);
+  font-family: 'Helvetica Neue',Helvetica,sans-serif;
+  line-height: normal;
+  z-index: 99999;
+ }
   </style>
 
   <script>
@@ -45,6 +55,26 @@
           layer.getSubLayer(0).set(subLayerOptions);
         }).on('error', function() {
           //log the error
+            var i = new cdb.geo.ui.Header({
+
+    model: new cdb.core.Model({
+   extra: {
+     title: "Title",
+     description: "Description",
+     show_title: true,
+     show_description: true
+   }
+ }),
+ template: cdb.core.Template.compile(
+  ' \
+ <div class="content">\
+ <div class="title">{{{ title }}}</div>\
+ <div class="description">{{{ description }}}</div>\
+ </div>',
+ 'mustache'
+ )
+  });
+  $('body').append(i.render().el);
         });
     }  
   </script>
