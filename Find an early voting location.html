@@ -6,6 +6,8 @@
   <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
   <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
   <style>
+<script src='https://api.mapbox.com/mapbox.js/v2.3.0/mapbox.js'></script>
+<link href='https://api.mapbox.com/mapbox.js/v2.3.0/mapbox.css' rel='stylesheet' />
 <style>
   body { margin:0; padding:0; }
   #map { position:absolute; top:0; bottom:0; width:100%; }
@@ -21,13 +23,11 @@
     max-width: 300px;
     min-width: 200px;
 }
-
 #inputs {
     z-index: 10;
     top: 10px;
     left: 10px;
 }
-
 #directions {
     z-index: 99;
     background: rgba(0,0,0,.8);
@@ -36,7 +36,6 @@
     bottom: 0;
     overflow: auto;
 }
-
 #errors {
     z-index: 8;
     opacity: 0;
@@ -46,7 +45,6 @@
     top: 90px;
     left: 10px;
 }
-
 </style>
 
 <script src='https://api.mapbox.com/mapbox.js/plugins/mapbox-directions.js/v0.4.0/mapbox.directions.js'></script>
@@ -64,26 +62,19 @@ L.mapbox.accessToken = 'pk.eyJ1Ijoic3BhdGlhbGp1anUiLCJhIjoiYTljNzM3Y2U3MmEwNzEyN
 var map = L.mapbox.map('map', 'mapbox.streets', {
     zoomControl: false
 }).setView([30.267987, -97.743804], 9);
-
 // move the attribution control out of the way
 map.attributionControl.setPosition('bottomleft');
-
 // create the initial directions object, from which the layer
 // and inputs will pull data.
 var directions = L.mapbox.directions();
-
 var directionsLayer = L.mapbox.directions.layer(directions)
     .addTo(map);
-
 var directionsInputControl = L.mapbox.directions.inputControl('inputs', directions)
     .addTo(map);
-
 var directionsErrorsControl = L.mapbox.directions.errorsControl('errors', directions)
     .addTo(map);
-
 var directionsRoutesControl = L.mapbox.directions.routesControl('routes', directions)
     .addTo(map);
-
 var directionsInstructionsControl = L.mapbox.directions.instructionsControl('instructions', directions)
     .addTo(map);
 </script>
