@@ -1,7 +1,5 @@
 <html>
 <head>
-<center>
-<img src="http://supernerdinc.com/wp-content/uploads/2015/08/Bernie_Sanders_2016_logo.jpg" width="204" height="142">
   <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css" />
   <script src="http://libs.cartocdn.com/cartodb.js/v3/cartodb.js"></script>
   <!--[if lte IE 8]>
@@ -25,9 +23,8 @@
       L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
         attribution: 'Mapbox <a href="http://mapbox.com/about/maps" target="_blank">Terms &amp; Feedback</a>'
       }).addTo(map);
-
       var layerUrl = 'https://txbernie.cartodb.com/api/v2/viz/1198cbc6-cf62-11e5-a772-0ea31932ec1d/viz.json';
-
+      
       // change the query for the first layer
 
       cartodb.createLayer(map, layerUrl)
@@ -37,6 +34,10 @@
         }).on('error', function() {
           //log the error
         });
+        var imageUrl = 'http://supernerdinc.com/wp-content/uploads/2015/08/Bernie_Sanders_2016_logo.jpg',
+    imageBounds = [[30.712216, -97.22655], [30.773941, -97.12544]];
+
+L.imageOverlay(imageUrl, imageBounds).addTo(map);
     }  
   </script>
 </head>
