@@ -64,6 +64,9 @@ L.mapbox.accessToken = 'pk.eyJ1Ijoic3BhdGlhbGp1anUiLCJhIjoiYTljNzM3Y2U3MmEwNzEyN
 var map = L.mapbox.map('map', 'mapbox.streets', {
     zoomControl: false
 }).setView([30.267987, -97.743804], 9);
+var p4lp63bdLayer = L.mapbox.tileLayer('spatialjuju.p4lp63bd');
+// add that layer to a map
+p4lp63bdLayer.addTo(map);
 // move the attribution control out of the way
 map.attributionControl.setPosition('bottomleft');
 // create the initial directions object, from which the layer
