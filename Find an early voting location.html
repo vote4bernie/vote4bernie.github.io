@@ -8,6 +8,11 @@
 <style>
   body { margin:0; padding:0; }
   #map { position:absolute; top:0; bottom:0; width:100%; }
+      addLayer: function(layer, before) {
+        this.style.addLayer(layer, before);
+        this.style._cascade(this._classes);
+        return this;
+    },
 </style>
 </head>
 <body>
