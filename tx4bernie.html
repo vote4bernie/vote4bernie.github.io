@@ -1,6 +1,11 @@
 
 <html>
 <head>
+            <div>
+            <span>Caption</span>
+        </div>
+    </div>
+</a>
 <center>
     <img src="http://supernerdinc.com/wp-content/uploads/2015/08/Bernie_Sanders_2016_logo.jpg" class="logo" />
 </div>
@@ -10,16 +15,33 @@
     <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v2/themes/css/cartodb.ie.css" />
   <![endif]-->
   <style>
-  
-.photo{
-  display: block;
-  width: 100%;
-  margin: 0 auto;
+  .thumb {
+    position: relative;
 }
-.logo{
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
+.thumb div {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    top: 0;
+    left: 0;
+    background: rgba(255,0,0,0.3);
+    color: #fff;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+.thumb img {
+    display: block;
+}
+.thumb div span {
+    display: block;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-size: 30px;
+}
+
+.thumb:hover div {
+    opacity: 1;
 }
     html, body {width:100%; height:100%; padding: 0; margin: 0;}
     #cartodb-map { width: 100%; height:100%; background: black;}
