@@ -16,12 +16,23 @@
 var layer = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
   attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
 });
-var map = L.map('map', {
-  scrollWheelZoom: false,
-  center: [30.267987, -97.743804],
-  zoom: 11
-});
+var map;
+function init(){
+  // initiate leaflet map
+  map = new L.Map('cartodb-map', {
+    center: [0,0],
+    zoom: 2
+  })
+var layerUrl =https://txbernie.cartodb.com/api/v2/viz/1198cbc6-cf62-11e5-a772-0ea31932ec1d/viz.json
+}
+cartodb.createLayer(map, layerUrl)
+  .addTo(map)
+  .on('done', function(layer) {
+  }).on('error', function() {
+    //log the error
+  });
 map.addLayer(layer);
+
   </script>
 </body>
 </html>
