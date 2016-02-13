@@ -1,0 +1,76 @@
+
+<html>
+<head>
+    <div>
+<font color= "CornflowerBlue">           <center><image src= http://supernerdinc.com/wp-content/uploads/2015/08/Bernie_Sanders_2016_logo.jpg style="width:95px;height:55px;"><br><strong><span>Early voting in Texas is February 16- 26 <br>For more information on early voting in Williamson County visit http://www.wilco.org/CountyDepartments/Elections/EarlyVotingLocations <br>Click Voting Location Markers for more information on voting times and dates</span></strong></center>
+        </div>
+    </div></bodystyle>
+</a>
+<center>
+</div>
+  <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css" />
+  <script src="http://libs.cartocdn.com/cartodb.js/v3/cartodb.js"></script>
+  <!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v2/themes/css/cartodb.ie.css" />
+  <![endif]-->
+  <style>
+  .thumb {
+    position: relative;
+}
+.thumb div {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    top: 0;
+    left: 0;
+    background: rgba(255,0,0,0.3);
+    color: #fff;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+.thumb img {
+    display: block;
+}
+.thumb div span {
+    display: block;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-size: 30px;
+}
+.thumb:hover div {
+    opacity: 1;
+}
+    html, body {width:100%; height:95%; padding: 0; margin: 0;}
+    #cartodb-map { width: 100%; height:95%; background: black;}
+ 
+  </style>
+
+  <script>
+    var map;
+    function init(){
+      // initiate leaflet map
+      map = new L.Map('cartodb-map', { 
+        center: [30.6745, -97.7351],
+        zoom: 10
+      })
+      L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+        attribution: 'Mapbox <a href="http://mapbox.com/about/maps" target="_blank">Terms &amp; Feedback</a>'
+      }).addTo(map);
+      var layerUrl = 'https://txbernie.cartodb.com/api/v2/viz/3ce2c186-d1ee-11e5-954f-0ea31932ec1d/viz.json';
+      // change the query for the first layer
+      cartodb.createLayer(map, layerUrl)
+        .addTo(map)
+        .on('done', function(layer) {
+          layer.getSubLayer(0).set(subLayerOptions);
+        }).on('error', function() {
+          //log the error
+        });
+    }  
+  </script>
+</head>
+
+<body onload="init()">
+  <div id='cartodb-map'></div>
+</body>
+</html>
